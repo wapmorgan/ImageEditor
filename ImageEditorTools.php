@@ -1,10 +1,15 @@
 <?php
 class ImageEditorTools {
 	/**
-	 * Calculates Perceptual hash of image
-	 * @param ImageEditor $image
-	 * @param array $sizes Sizes. Defaults to array(8, 8)
-	 * @return string
+	 * Calculates Perceptual hash of image.
+	 * Algorithm:
+	 * 1. Shrunk image.
+	 * 2. Convert to gray-scale.
+	 * 3. Calculate the average color of all image.
+	 * 4. Compose a chain of bits that shows pixel color is higher of lower than average.
+	 * 5. Convert result to hexadecimal string.
+	 * @param ImageEditor $image Image you want get perceptual hash of.
+	 * @return string Hash.
 	 */
 	static public function pHash(ImageEditor $image, $sizes = array(8, 8)) {
 		$image = clone $image;
@@ -25,11 +30,8 @@ class ImageEditorTools {
 		}
 
 		$pixels = $image->width * $image->height;
-		var_dump($sum, $pixels);
 		$average = array("r" => ceil($sum["r"] / $pixels), "g" => ceil($sum["g"] / $pixels), "b" => ceil($sum["b"] / $pixels));
-		var_dump($average);
 		$average = hexdec(dechex($average["r"]).dechex($average["g"]).dechex($average["b"]));
-		var_dump($average);
 
 		// hash
 		$hash = null;
