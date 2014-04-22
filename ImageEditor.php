@@ -1,4 +1,7 @@
 <?php
+if (!class_exists('CComponent', false))
+	require_once dirname(__FILE__).'/CComponent.php';
+
 /**
  * This is a simple image editor
  * @author wapmorgan (wapmorgan@gmail.com)
