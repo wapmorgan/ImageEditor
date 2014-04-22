@@ -1,7 +1,7 @@
 {
 	"name": "wapmorgan/image-editor",
 	"description": "Simple image editor for resizing, cropping and doing other elementary actions with images.",
-	"keywords": "library",
+	"keywords": ["library"],
 	"tags": ["images"],
 	"homepage": "https://github.com/wapmorgan/ImageEditor"
 }
