@@ -5,7 +5,6 @@ if (!class_exists('CComponent', false))
 /**
  * This is a simple image editor
  * @author wapmorgan (wapmorgan@gmail.com)
- * @version 0.0.2
  * @link https://github.com/wapmorgan/ImageEditor
  * @link https://github.com/wapmorgan/ImageEditor-test
  * @link https://github.com/wapmorgan/ImageEditor-doc
