@@ -1,4 +1,5 @@
 **ImageEditor** is a wrapper of gd functions.
+Firstly, it was working only in yii-application context, but not now.
 
 **How to start**:
 Create from existing file or make an empty area
@@ -14,7 +15,6 @@ $image = ImageEditor::createFromResource(imagecreatetruecolor(90, 90));
 1. **width** - width of image
 2. **height** - height of image
 3. **resource** - original gd-resource of image (you can pass it directly to image-gd functions)
-
 
 ## Operations
 ### Resize && Zoom (don't cut image)
@@ -46,7 +46,6 @@ $image = ImageEditor::createFromResource(imagecreatetruecolor(90, 90));
 1. **appendImageTo($side, ImageEditor $appendix, int $modifiers)** - appends an image (`$appendix`) to current image at `$side` (`top|bottom|left|right`).
 2. **placeImageAt($x, $y, ImageEditor $image)** - places an image atop current image at `$x` X `$y`.
 3. **placeImageAtCenter(ImageEditor $image)** - places an image in the center of current image.
-
 
 ### Save
 1. **saveToFile($filename, $format, $quality)** - saves image to disk.
