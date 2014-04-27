@@ -2,6 +2,9 @@
 if (!class_exists('CComponent', false))
 	require_once dirname(__FILE__).'/CComponent.php';
 
+if (!function_exists('imagecreatefrombmp'))
+	require_once dirname(__FILE__).'/function.imagecreatefrombmp.php';
+
 /**
  * This is a simple image editor
  * @author wapmorgan (wapmorgan@gmail.com)
@@ -302,7 +305,7 @@ class ImageEditor extends CComponent {
 	/**
 	 * Saves an image to file
 	 * @param string $filename Filename
-	 * @param strng $format Image format.
+	 * @param mixed $format Image format. Can be either a string or a defined constant IMAGETYPE_xxx
 	 * Formats:
 	 * + jpeg (or jpg)
 	 * + png
@@ -315,6 +318,7 @@ class ImageEditor extends CComponent {
 	 */
 	public function saveToFile($filename, $format, $quality = null) {
 		switch ($format) {
+			case IMAGETYPE_JPEG:
 			case 'jpeg':
 			case 'jpg':
 				if ($quality === null)
@@ -322,6 +326,7 @@ class ImageEditor extends CComponent {
 				else
 					imagejpeg($this->_image, $filename, $quality);
 				break;
+			case IMAGETYPE_PNG:
 			case 'png':
 				if ($quality === null)
 					imagepng($this->_image, $filename);
@@ -330,10 +335,14 @@ class ImageEditor extends CComponent {
 					imagepng($this->_image, $filename, $quality);
 				}
 				break;
+			case IMAGETYPE_GIF
 			case 'gif':
 				imagegif($this->_image, $filename);
+				break;
+			case IMAGETYPE_WBMP:
 			case 'wbmp':
 				imagewbmp($this->_image, $filename);
+				break;
 			default:
 				throw new Exception('Unknown (format) "'.$format.'"!');
 		}
@@ -409,6 +418,12 @@ class ImageEditor extends CComponent {
 				break;
 			case IMAGETYPE_GIF:
 				$image = imagecreatefromgif($filename);
+				break;
+			case IMAGETYPE_WBMP:
+				$image = imagecreatefromwbmp($filename);
+				break;
+			case IMAGETYPE_BMP:
+				$image = imagecreatefrombmp($filename);
 				break;
 			default:
 				throw new Exception('Unknown image format!');
