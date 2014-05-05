@@ -335,7 +335,7 @@ class ImageEditor extends CComponent {
 					imagepng($this->_image, $filename, $quality);
 				}
 				break;
-			case IMAGETYPE_GIF
+			case IMAGETYPE_GIF:
 			case 'gif':
 				imagegif($this->_image, $filename);
 				break;
