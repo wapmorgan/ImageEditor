@@ -304,6 +304,15 @@ class ImageEditor extends CComponent {
 
 	/**
 	 * Saves an image to file
+	 * @see save()
+	 * @deprecated
+	 */
+	public function saveToFile() {
+		return call_user_func_array(array($this, 'save'), func_get_args());
+	}
+
+	/**
+	 * Saves an image to file
 	 * @param string $filename Filename
 	 * @param mixed $format Image format. Can be either a string or a defined constant IMAGETYPE_xxx
 	 * Formats:
@@ -316,7 +325,7 @@ class ImageEditor extends CComponent {
 	 * If not set, save function will be called without passing quality param.
 	 * @return ImageEditor this object
 	 */
-	public function saveToFile($filename, $format, $quality = null) {
+	public function save($filename, $format, $quality = null) {
 		switch ($format) {
 			case IMAGETYPE_JPEG:
 			case 'jpeg':
@@ -345,6 +354,7 @@ class ImageEditor extends CComponent {
 				break;
 			default:
 				throw new Exception('Unknown (format) "'.$format.'"!');
+				break;
 		}
 		return $this;
 	}
@@ -431,6 +441,25 @@ class ImageEditor extends CComponent {
 		}
 
 		return new self($image);
+	}
+
+	/**
+	 * Tries to create an instance from file.
+	 * If success, returns instance. Otherwise, null.
+	 * It is a shortcut in this use:
+	 * <code>
+	 * if (($image = ImageEditor::tryCreateFromFile($filename)) === null) {
+	 *     throw new CHttpException(400);
+	 * }
+	 * </code>
+	 */
+	static public function tryCreateFromFile($filename) {
+		try {
+			$instance = self::createFromFile($filename);
+			return $instance;
+		} catch (\Exception $exception) {
+			return null;
+		}
 	}
 
 	/**
