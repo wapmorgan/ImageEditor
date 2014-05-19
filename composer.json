@@ -5,7 +5,7 @@
 	"description": "Simple image editor for resizing, cropping and doing other elementary actions with images.",
 	"keywords": ["images"],
 	"require": {
-		"ext-gd"
+		"ext-gd": "*"
 	},
 	"autoload": {
 		"classmap": [""],
