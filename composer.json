@@ -1,7 +1,14 @@
 {
 	"name": "wapmorgan/image-editor",
-	"description": "Simple image editor for resizing, cropping and doing other elementary actions with images.",
 	"type": "library",
+	"homepage": "https://github.com/wapmorgan/ImageEditor",
+	"description": "Simple image editor for resizing, cropping and doing other elementary actions with images.",
 	"keywords": ["images"],
-	"homepage": "https://github.com/wapmorgan/ImageEditor"
+	"require": {
+		"ext-gd"
+	},
+	"autoload": {
+		"classmap": [""],
+		"files": ["function.imagecreatefrombmp.php"]
+	}
 }
