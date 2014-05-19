@@ -52,7 +52,7 @@ $image = ImageEditor::createFromResource(imagecreatetruecolor(90, 90));
 3. **placeImageAtCenter(ImageEditor $image)** - places an image in the center of current image.
 
 ### Save
-1. **saveToFile($filename, $format, $quality)** - saves image to disk.
+1. **save($filename, $format, $quality)** - saves image to disk.
 Possible `$format` values: jpeg, png, gif, wbmp.
 Quality is an integer value between 0 (worst) and 100 (best).
 
@@ -65,32 +65,37 @@ Quality is an integer value between 0 (worst) and 100 (best).
 ### Changelog
 
 ```
-+--------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------+
-| version                                    | date         | description                                                                                                           |
-+--------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------+
-| v0.0.5: instantiation from bmp files       | May 6, 2014  | Changed:                                                                                                              |
-|                                            |              | * Added function **imagecreatefrombmp**.                                                                              |
-|                                            |              | * Some updates in `saveToFile()`: now you can use predefined constants like IMAGETYPE_XXX to specify output format.   |
-+--------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------+
-| v0.0.4: new class ImageEditorTools         | Apr 22, 2014 | Changed:                                                                                                              |
-|                                            |              | * Added **ImageEditorTools.php** with `pHash()` method.                                                               |
-+--------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------+
-| v0.0.3: standalone using and composer.json | Apr 22, 2014 | Changed:                                                                                                              |
-|                                            |              | * Added **CComponent.php**. **ImageEditor** loads in automatically if need. (so you can use ImageEditor without yii). |
-|                                            |              | * Added **composer.json**. Packagist name: `wapmorgan/image-editor`                                                   |
-+--------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------+
-| v0.0.2: a lot of changes                   | Apr 12, 2014 | Changed:                                                                                                              |
-|                                            |              | * allowing clone object.                                                                                              |
-|                                            |              | * returning $this in all methods.                                                                                     |
-|                                            |              | * **cropSide** renamed to **decreaseSide**.                                                                           |
-|                                            |              | * added **decreaseWidthTo**(), **decreaseHeightTo**() and **decreaseTo**().                                           |
-|                                            |              | * **appendImageTo**() finished.                                                                                       |
-|                                            |              | * **rotate()** fixed.                                                                                                 |
-|                                            |              | * **added gif and wbmp** formats in saveToFile().                                                                     |
-|                                            |              | * **added mirroring functions**: horizontalFlip() and verticalFlip().                                                 |
-|                                            |              | * **added createFromResource** static public method.                                                                  |
-|                                            |              | * **created testing script**, **added docs**.                                                                         |
-+--------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------+
-| first commit                               | Oct 4, 2013  |                                                                                                                       |
-+--------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| version                                        | date         | description                                                                                                            |
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| v0.0.6: composer fixes and ImageEditor updates | May 19, 2014 | Changed:                                                                                                               |
+|                                                |              | * Method **saveToFile()** marked as depricated. Now use **save()** method instead.                                     |
+|                                                |              | * Added method **tryCreateFromFile()** which returns either an ImageEditor instance (on success) or null (on failure). |
+|                                                |              | * Fixed composer configuration (autoloading and requirements).                                                         |
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| v0.0.5: instantiation from bmp files           | May 6, 2014  | Changed:                                                                                                               |
+|                                                |              | * Added function **imagecreatefrombmp**.                                                                               |
+|                                                |              | * Some updates in `saveToFile()`: now you can use predefined constants like IMAGETYPE_XXX to specify output format.    |
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| v0.0.4: new class ImageEditorTools             | Apr 22, 2014 | Changed:                                                                                                               |
+|                                                |              | * Added **ImageEditorTools.php** with `pHash()` method.                                                                |
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| v0.0.3: standalone using and composer.json     | Apr 22, 2014 | Changed:                                                                                                               |
+|                                                |              | * Added **CComponent.php**. **ImageEditor** loads in automatically if need. (so you can use ImageEditor without yii).  |
+|                                                |              | * Added **composer.json**. Packagist name: `wapmorgan/image-editor`                                                    |
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| v0.0.2: a lot of changes                       | Apr 12, 2014 | Changed:                                                                                                               |
+|                                                |              | * allowing clone object.                                                                                               |
+|                                                |              | * returning $this in all methods.                                                                                      |
+|                                                |              | * **cropSide** renamed to **decreaseSide**.                                                                            |
+|                                                |              | * added **decreaseWidthTo**(), **decreaseHeightTo**() and **decreaseTo**().                                            |
+|                                                |              | * **appendImageTo**() finished.                                                                                        |
+|                                                |              | * **rotate()** fixed.                                                                                                  |
+|                                                |              | * **added gif and wbmp** formats in saveToFile().                                                                      |
+|                                                |              | * **added mirroring functions**: horizontalFlip() and verticalFlip().                                                  |
+|                                                |              | * **added createFromResource** static public method.                                                                   |
+|                                                |              | * **created testing script**, **added docs**.                                                                          |
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+| first commit                                   | Oct 4, 2013  |                                                                                                                        |
++------------------------------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 ```
