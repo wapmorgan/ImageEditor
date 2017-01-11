@@ -1,6 +1,7 @@
 {
 	"name": "wapmorgan/image-editor",
 	"type": "library",
+	"license": "MIT",
 	"homepage": "https://github.com/wapmorgan/ImageEditor",
 	"description": "Simple image editor for resizing, cropping and doing other elementary actions with images.",
 	"keywords": ["images"],
