@@ -1,5 +1,8 @@
-**ImageEditor** is a wrapper of gd functions.
-Earlier it was working only in yii-application context, now you can use this package in any application.
+**!! Moved to another repository: https://github.com/wapmorgan/Imagery**
+**This one is not updatable at all!**
+
+---
+**ImageEditor** is a wrapper of gd functions. Earlier it was working only in yii-application context, now you can use this package in any application.
 
 [![Composer package](http://xn--e1adiijbgl.xn--p1acf/badge/wapmorgan/image-editor)](https://packagist.org/packages/wapmorgan/image-editor)
 [![Latest Stable Version](https://poser.pugx.org/wapmorgan/image-editor/v/stable)](https://packagist.org/packages/wapmorgan/image-editor)
